@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assests/css/style.css"/>
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header class="hero">
+        <h1 class="app-title">Weather Dashboard</h1>
+    </header>
+
+    <main class="flex-row justify-space-between">
+        <div class="col-12 col-md-3">
+            <div class="card">
+                <h2>Search for a City: <input type="text" id="searchCity"/></h2>
+                <button onclick="myWeather()" class="btn">Search</button>
+                <div id="response-container"></div>
+            </div>
+        </div> 
+        
+        <div class="col-12 col-md-9">
+            <h2 class="cityName"> <span id="repo-search-city"></span></h2>
+            <div id="repos-container" class="city-date"></div>
+        </div>
+
+    </main>
+
+    <!-- <button onclick="console.log('button clicked')">Click Me!</button> -->
+
+    <script src="./assests/js/script.js"></script>
+
+</body>
+</html>
