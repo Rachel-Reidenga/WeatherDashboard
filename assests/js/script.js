@@ -33,30 +33,34 @@ function myWeather() {
            var reposContainer = document.querySelector("#repos-container");
            reposContainer.appendChild(windSpeedEl) 
 
-           var uvIndexLonEl = document.createElement("p")
-           uvIndexLonEl.textContent = data.coord.lon
-           var reposContainer = document.querySelector("#UV-container");
-           reposContainer.appendChild(uvIndexLonEl) 
+           cityUVindex(data.coord.lat, data.coord.lon)
 
-           var uvIndexLatEl = document.createElement("p")
-           uvIndexLatEl.textContent = data.coord.lat
-           var reposContainer = document.querySelector("#UV-container");
-           reposContainer.appendChild(uvIndexLatEl) 
+           // Weather icons
+            var icon = document.createElement('img')
+            icon.setAttribute("src",  "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
+            //resize your img tag in your css
+                })
 
+        function cityUVindex(lat, lon) {
+            // CHANGE color of UV Index based on favorable, moderate or severe
+            // var cityUVindex = function(data)
 
-        })
+            var UVindexUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=ceb254cf1b7a1d7b09e3ec4d653200a4";
+            console.log(UVindexUrl);
+            fetch(UVindexUrl)
+            .then(function(response) {
+            return response.json();
 
-        // function cityUVindex() {
-        //     // CHANGE color of UV Index based on favorable, moderate or severe
-        //     var cityUVindex = function(data)
+            })
+            .then(function(data) {
+                var UVindex = document.createElement("p")
+                UVindex.textContent = data.value
+                console.log(data);
 
-        //     var UVindexUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + lat + '&lon=' + lon + '&appid=ceb254cf1b7a1d7b09e3ec4d653200a4';
-        //     console.log(UVindexUrl);
-        //     fetch(UVindexUrl)
-        //     .then(function(response) {
-        //     return response.json();
-        //     })
-        // }
+                var uvContainer = document.querySelector("#UV-container");
+                uvContainer.appendChild(UVindex)
+            })
+        }
 
         // Save city searches to localStorage
         function saveCity() {
@@ -68,17 +72,19 @@ function myWeather() {
         }
 
         // Five Day forcast for city with date and weather icon showing coditions, temp and humidity
+        
+        function fiveDayWeather() {
         var fiveDayUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + searchCity + '&appid=ceb254cf1b7a1d7b09e3ec4d653200a4';
-    console.log(fiveDayUrl);
-    fetch(fiveDayUrl)
-    .then(function(response) {
+        console.log(fiveDayUrl);
+        fetch(fiveDayUrl)
+        .then(function(response) {
         // request was successful
-    return response.json();
-      })
-      .then(function(data) {
+        return response.json();
+        })
+        .then(function(data) {
         console.log(data) 
-      })
+        })
 
-
+    }
 
     };
