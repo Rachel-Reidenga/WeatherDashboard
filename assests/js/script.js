@@ -1,6 +1,7 @@
 function myWeather() {
 
     var searchCity = document.querySelector("#searchCity").value; 
+    saveCity (searchCity)
 
         // Fetch with API key
 
@@ -18,19 +19,22 @@ function myWeather() {
             console.log(data)
            // THIS IS WHERE THE MAGIC HAPPENS 
            // Elements: Temp Humidity Wind Speed & UV Index
+           var reposContainer = document.querySelector("#repos-container");
+           reposContainer.innerHTML = ""
+
            var tempEl = document.createElement("p")
            tempEl.textContent = data.main.temp
-           var reposContainer = document.querySelector("#repos-container");
+           
+
+
            reposContainer.appendChild(tempEl)
 
            var humidityEl = document.createElement("p")
            humidityEl.textContent = data.main.humidity
-           var reposContainer = document.querySelector("#repos-container");
            reposContainer.appendChild(humidityEl)
 
            var windSpeedEl = document.createElement("p")
            windSpeedEl.textContent = data.wind.speed
-           var reposContainer = document.querySelector("#repos-container");
            reposContainer.appendChild(windSpeedEl) 
 
            cityUVindex(data.coord.lat, data.coord.lon)
@@ -55,22 +59,36 @@ function myWeather() {
             .then(function(data) {
                 var UVindex = document.createElement("p")
                 UVindex.textContent = data.value
-                console.log(data);
+                console.log(UVindex);
 
                 var uvContainer = document.querySelector("#UV-container");
+                uvContainer.innerHTML = ""
                 uvContainer.appendChild(UVindex)
+
+                if ( data.value <= 2) {
+                    document.getElementById("UV-container").style.backgroundColor = "green";
+                  } else if (data.value >= 2.1) {
+                    document.getElementById("UV-container").style.backgroundColor = "yellow";
+                  } else if (data.value > 5.9) {
+                    document.getElementById("UV-container").style.backgroundColor = "red";
+                    
+                  }
+
             })
+
+            
         }
 
         // Save city searches to localStorage
-        function saveCity() {
-            var saveCity = { City: "" };
-            localStorage.setItem("saveCity", JSON.stringify(saveCity));
+        function saveCity(newCity) {
+            var cityArray = JSON.parse(localStorage.getItem("saveCity")) || [] ;
+            cityArray.push (newCity)
+            localStorage.setItem("saveCity", JSON.stringify(cityArray));
 
-            var retrieveCity = localStorage.getItem("saveCity");
-            console.log("retrieveCity", JSON.parse(retrieveCity))
+        
         }
 
+        
         // Five Day forcast for city with date and weather icon showing coditions, temp and humidity
         
         function fiveDayWeather() {
@@ -88,3 +106,18 @@ function myWeather() {
     }
 
     };
+
+    function displayBtn() {
+        var cityArray = JSON.parse(localStorage.getItem("saveCity")) || [] ;
+        cityArray.forEach(element => {
+            console.log(element)
+            var btnEl = document.querySelector(".display-btn")
+            var newBtn = document.createElement("button")
+            newBtn.classList.add("btn", "btn-primary", "m-1")
+            newBtn.textContent = element
+            btnEl.appendChild(newBtn)
+        });
+    }
+
+    displayBtn()
+    
