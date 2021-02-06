@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="./assests/css/style.css"/>
     <title>Weather Dashboard</title>
 </head>
@@ -11,23 +12,58 @@
         <h1 class="app-title">Weather Dashboard</h1>
     </header>
 
-    <main class="flex-row justify-space-between">
+    <main class="flex-row">
         <div class="col-12 col-md-3">
             <div class="card">
                 <h2>Search for a City: <input type="text" id="searchCity"/></h2>
                 <button onclick="myWeather()" class="btn">Search</button>
-                <div id="response-container"></div>
+                <div id="response-container">
+                    <!-- <p>&#8457;</p> -->
+                </div>
+                
             </div>
         </div> 
         
-        <div class="col-12 col-md-9">
-            <h2 class="cityName"> <span id="repo-search-city"></span></h2>
-            <div id="repos-container" class="city-date"></div>
-            <div id="UV-container"></div>
-            <!-- <p>Temperature:</p>
-            <p>Humidity:</p>
-            <p>Wind Speed:</p>
-            <p>UV Index:</p> -->
+        <div class="container">
+            <div class="row">
+                <div class="city-date"></div>
+                <h2 class="cityName"> <span id="repo-search-city"></span></h2>
+                <div id="repos-container"></div>
+                <div id="UV-container" class="w-25"></div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>Five Day Forcast:</h2>
+            <div class="row">
+                <div class="col">
+                    <div id="day0" class="border border-dark p-3">
+                    </div>
+
+                </div>
+                    <div class="col">
+                    <div id="day1" class="border border-dark p-3">
+                    </div>
+
+                </div>
+                    <div class="col">
+                    <div id="day2" class="border border-dark p-3">
+                    </div>
+
+                </div>
+                    <div class="col">
+                    <div id="day3" class="border border-dark p-3">
+                    </div>
+
+                </div>
+                    <div class="col">
+                    <div id="day4" class="border border-dark p-3">
+                    </div>
+
+                </div>
+                
+            </div>
+
         </div>
 
         <div class="display-btn"></div>
@@ -35,7 +71,7 @@
     </main>
 
     <!-- <button onclick="console.log('button clicked')">Click Me!</button> -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="./assests/js/script.js"></script>
 
 </body>
