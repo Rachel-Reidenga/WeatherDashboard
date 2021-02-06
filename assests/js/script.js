@@ -150,7 +150,6 @@ function myWeather() {
             
         });
 
-        // document.getElementById("saveCity").value = cityArray;
 
     }
 
