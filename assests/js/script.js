@@ -1,7 +1,14 @@
-function myWeather() {
-
-    var searchCity = document.querySelector("#searchCity").value; 
-    saveCity (searchCity)
+function myWeather(cityName) {
+    console.log('myWeather has fired');
+    var searchCity;
+    if (cityName != undefined) {
+        console.log('cityname not undefined')
+        searchCity = cityName;
+    } else {
+        console.log('cityname from input')
+        searchCity = document.querySelector("#searchCity").value; 
+        saveCity (searchCity)
+    }
 
 
     // Display current Date
@@ -148,6 +155,11 @@ function myWeather() {
             newBtn.textContent = element
             btnEl.appendChild(newBtn)
             
+
+            newBtn.addEventListener("click", function() {
+                console.log("the button was clicked")
+                myWeather(element)
+            });
         });
 
 
