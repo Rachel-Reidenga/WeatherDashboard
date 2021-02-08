@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-Weather aplication using OpenWeather API along with moment.js to display current local weather, temperature, humidity, wind speed and UV index. While also displaying the weather for the next five days featuring a weather icon.
+Weather application using OpenWeather API along with moment.js to display current local weather, temperature, humidity, wind speed and UV index. While also displaying the weather for the next five days featuring a weather icon.
 
 ## Technologies
 
@@ -11,11 +11,11 @@ Weather aplication using OpenWeather API along with moment.js to display current
 
 ## Deployment
 
-Link to [Weather Dashboard](https://rachel-reidenga.github.io/portfolio/)
+Link to [Weather Dashboard](https://rachel-reidenga.github.io/WeatherDashboard/)
 
-Link to code on [GitHub](https://github.com/Rachel-Reidenga/portfolio/blob/Rachel-Reidenga.github.io/index.html)
+Link to code on [GitHub](https://github.com/Rachel-Reidenga/WeatherDashboard/tree/Rachel-Reidenga.github.io/assests)
 
-Link to repository on [GitHub](https://github.com/Rachel-Reidenga/portfolio)
+Link to repository on [GitHub](https://github.com/Rachel-Reidenga/WeatherDashboard)
 
 ## Screenshots
 
