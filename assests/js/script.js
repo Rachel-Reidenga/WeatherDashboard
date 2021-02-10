@@ -36,7 +36,7 @@ function myWeather(cityName) {
         
         for (let  i=0; i<5; i++) {
             var day = document.querySelector(["#day"+i]);
-        day.innerHTML = `<img src="http://openweathermap.org/img/w/${data.list[i*8].weather[0].icon}.png" alt="weather icon"/>
+        day.innerHTML = `<img src="https://openweathermap.org/img/w/${data.list[i*8].weather[0].icon}.png" alt="weather icon"/>
         <h2>
             ${moment(data.list[i*8].dt_txt).format("MMM Do YYYY")}
         </h2>
@@ -67,7 +67,7 @@ function myWeather(cityName) {
 
            // Weather icons
            var iconEl = document.createElement('img')
-           iconEl.setAttribute("src",  "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
+           iconEl.setAttribute("src",  "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
            iconEl.setAttribute("alt", "weather icon")
            iconEl.setAttribute("id", "weatherIcon")
            reposContainer.appendChild(iconEl)
@@ -95,7 +95,7 @@ function myWeather(cityName) {
         function cityUVindex(lat, lon) {
             // CHANGE color of UV Index based on favorable, moderate or severe
 
-            var UVindexUrl = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=ceb254cf1b7a1d7b09e3ec4d653200a4";
+            var UVindexUrl = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=ceb254cf1b7a1d7b09e3ec4d653200a4";
             console.log(UVindexUrl);
             fetch(UVindexUrl)
             .then(function(response) {
